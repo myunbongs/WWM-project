@@ -29,13 +29,12 @@ $ pip install -r requirements.txt
 ### 👫 개발 규칙
 
 > 🪵 **Git 브랜치** 
-- main (배포 브랜치) 
-- develop (개발 브랜치)
-> 
+>- main (배포 브랜치) 
+>- develop (개발 브랜치)
 
 <aside>
-💬  **Git Convention 규칙 
--** 깃모지 사용
+** 💬 Git Convention 규칙 **
+- 깃모지 사용
 - 접두사 feat, fix, … 기타 등등 붙여서 사용 
 ex) git commit -m “feat: ✨ 개인별 시간 그래프 기능 추가"
 
