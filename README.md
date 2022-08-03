@@ -12,19 +12,26 @@
 $ git clone -b develop --single-branch https://github.com/{username}/WWM-project.git
 ```
 
-1. project를 연다!
-2. 가상환경을 생성한다! (아래는 MAC 기준) 
+3. project를 연다!
+4. 가상환경을 생성한다! (아래는 MAC 기준) 
 
 ```
 $ python3 -m venv venv 
 $ source venv/bin/activate
 ```
 
-1. pip list를 설치한다! 
+5. pip list를 설치한다! 
 
 ```
 $ pip install -r requirements.txt
 ```
+
+5. 잘 동작하는지 확인한다! 
+
+```
+$ python manage.py runserver
+```
+
 
 ### 👫 개발 규칙
 
