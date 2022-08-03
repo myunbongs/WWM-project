@@ -26,7 +26,7 @@ $ source venv/bin/activate
 $ pip install -r requirements.txt
 ```
 
-5. 잘 동작하는지 확인한다! 
+6. 잘 동작하는지 확인한다! 
 
 ```
 $ python manage.py runserver
