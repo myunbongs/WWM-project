@@ -32,7 +32,7 @@ $ pip install -r requirements.txt
 $ python manage.py runserver
 ```
 
-#### ✓ 최초 1회 실행 이후에 작업시 같은 폴더에서 git pull 실행 후에 작업하하기!!!!!!!!!!!!!! 
+#### ✓ 최초 1회 실행 이후에 작업시 같은 폴더에서 git pull 실행!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 
 
 ### 👫 개발 규칙
