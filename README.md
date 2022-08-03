@@ -33,9 +33,8 @@ $ pip install -r requirements.txt
 >- develop (개발 브랜치)
 
 **💬 Git Convention 규칙**
-- 깃모지 사용
+- 깃모지 사용 [gitmoji](https://gitmoji.dev/)
 - 접두사 feat, fix, … 기타 등등 붙여서 사용 
 ex) git commit -m “feat: ✨ 개인별 시간 그래프 기능 추가"
 
-[gitmoji](https://gitmoji.dev/)
 
