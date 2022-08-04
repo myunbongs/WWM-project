@@ -137,7 +137,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'  # 한국 시간 적용 
+
+DATETIME_FORMAT =  '%Y-%m-%d'
 
 USE_I18N = True
 
