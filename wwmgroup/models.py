@@ -13,7 +13,7 @@ class WwmGroup(models.Model) :
    enddate = models.DateField(default=datetime.date.today )
    leader_email = models.CharField(max_length=30) 
    
-   user = models.ForeignKey(User, on_delete = models.CASCADE, null=True)
+   user = models.ManyToManyField(User)
 
    @property
    def avaliablity_cal_length(self) :
