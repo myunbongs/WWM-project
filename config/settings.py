@@ -59,6 +59,8 @@ INSTALLED_APPS = [
 
     'accounts',
     'wwmgroup', 
+    'whenmeet',
+    'wheremeet', 
 ]
 
 MIDDLEWARE = [
