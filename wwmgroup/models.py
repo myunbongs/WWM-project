@@ -11,7 +11,8 @@ class WwmGroup(models.Model) :
    desc = models.CharField(max_length=100, help_text='그룹 설명', blank=True)  
    startdate = models.DateField(default=datetime.date.today )
    enddate = models.DateField(default=datetime.date.today )
-   leader_email = models.CharField(max_length=30) 
+   leader_email = models.CharField(max_length=30)
+   groupurl = models.CharField(max_length=30)
    
    user = models.ManyToManyField(User)
 
