@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="address_kakao" name="address" readonly />
+    <button onclick="send_address(this)">저장</button>
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d69a7a5478026221a062ef69c9c7cb29&libraries=services""></script>
+    <script>
+        $.ajaxSetup({
+          headers: { "X-CSRFToken": '{{csrf_token}}' }
+        });
+    </script>
+    
+    <script>
+    window.onload = function(){
+        document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    document.getElementById("address_kakao").value = data.address; // 주소 넣기
+                }
+            }).open();
+        });
+    }
+    </script>
+
+    <!-- <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        });
+
+        function showPosition(position) {
+            var container = document.getElementById('map');
+
+            // 현재 위치 위도, 경도 
+            console.log(position.coords.latitude, position.coords.longitude); 
+        }
+    </script> -->
+
+
+    <script>
+        function send_address(e) {    
+            var geocoder = new kakao.maps.services.Geocoder();
+
+            geocoder.addressSearch(document.getElementById("address_kakao").value, function(result, status) {
+
+            // 정상적으로 검색이 완료됐으면 
+            if (status === kakao.maps.services.Status.OK) {
+
+                // : kakao.maps.LatLng(latitude, longitude),
+
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                coordinate = {
+                    'latitude': result[0].x, 
+                    'longitude': result[0].y
+                }
+
+                $.ajax({
+                    url: '{% url "save-coordinate" %}',
+                    type: 'POST',
+                    data: JSON.stringify(coordinate),
+                    datatype: 'json', 
+                }).done(function (data) {
+                    alert("주소 전송에 성공하였습니다.");
+                }).fail(function (data) {
+                    alert("전송 중 서버와의 통신에 문제가 발생하였습니다.\n원인: " + data.reason);
+                })
+
+            } 
+            });
+        }    
+        </script>
+</body>
