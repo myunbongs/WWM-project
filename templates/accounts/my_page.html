@@ -1,0 +1,10 @@
+{% for group in group_list %}
+
+<p>{{ group.groupname }}</p>
+    {% for user in user_list %}
+
+    <p>{{ user.name }}</p>
+
+    {% endfor %}
+
+{% endfor %}
