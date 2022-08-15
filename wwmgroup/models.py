@@ -1,0 +1,32 @@
+import base64
+import codecs
+import datetime
+import uuid
+from django.db import models
+from accounts.models import User
+
+# Create your models here.
+class WwmGroup(models.Model) :
+   groupname = models.CharField(max_length=20) 
+   desc = models.CharField(max_length=100, help_text='그룹 설명', blank=True)  
+   startdate = models.DateField(default=datetime.date.today )
+   enddate = models.DateField(default=datetime.date.today )
+   leader_email = models.CharField(max_length=30)
+   groupurl = models.CharField(max_length=30)
+   
+   user = models.ManyToManyField(User)
+
+   @property
+   def avaliablity_cal_length(self) :
+       self.avaliablity_days_time = { (self.enddate - self.startdate) * 24 } * "0"
+       return self.avaliablity_days_time
+   
+   @property
+   def generate_random_slug_code(length=8):
+    """
+    generates random code of given length
+    """
+    return base64.urlsafe_b64encode(
+        codecs.encode(uuid.uuid4().bytes, "base64").rstrip()
+    ).decode()[:length]
+
