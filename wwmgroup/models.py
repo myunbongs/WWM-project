@@ -11,7 +11,10 @@ class WwmGroup(models.Model) :
    desc = models.CharField(max_length=100, help_text='그룹 설명', blank=True)  
    startdate = models.DateField(default=datetime.date.today )
    enddate = models.DateField(default=datetime.date.today )
-   leader_email = models.CharField(max_length=30) 
+   leader_email = models.CharField(max_length=30)
+   
+   meeting_time = models.CharField(max_length=100, blank=True)  # 최종 모임 시각
+   meeting_station = models.CharField(max_length=50, blank=True) # 최종 모임 장소(역) 
    
    user = models.ManyToManyField(User)
 
