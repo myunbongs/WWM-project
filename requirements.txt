@@ -6,3 +6,4 @@ PyMySQL==1.0.2
 setuptools==62.3.2
 sqlparse==0.4.2
 pandas
+django-allauth
