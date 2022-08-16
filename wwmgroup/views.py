@@ -14,16 +14,17 @@ def groupcreate(request):
     user = get_object_or_404(User, pk=request.user.id)
     # 유저 아이디 받아옴.
     if request.method == 'POST':
-        form = groupForm(request.POST, instance=WwmGroup)
-        group = WwmGroup.objects.create(user=user, leader_email=request.user.email,
+        group = WwmGroup.objects.create(leader_email=request.user.email,
                                         wwmgroupurl=WwmGroup.generate_random_slug_code)
+        form = groupForm(request.POST, instance=group)
+        group.user.add(user)
         if form.is_valid():
             group = form.save()
             group.save()
-            # return redirect(group.groupUrl)#그룹 만들고 어디로 이동할지
+            return redirect('main')#그룹 만들고 어디로 이동할지
     else:
-        form = groupForm(instance=WwmGroup)
-        return render(request, '그룹만드는화면.html', {'form': form})
+        form = groupForm()
+        return render(request, 'wwmgroup/groupcreate.html', {'form': form})
 
 
 # 2. 그룹장 변경 view
@@ -55,9 +56,10 @@ def grouplist(request, group_url):
 # 우선 그룹 url로 들어오면 가입하거나, 가입된 것을 확인하거나 둘 중 하나를 한다.
 
 def joingroup(request, group_url):
-    group = get_object_or_404(WwmGroup, wwmgroupurl=group_url)
     if request.user.is_authenticated:
-        g, created = WwmGroup.objects.get_or_create(groupurl=group_url, user=request.user)
+        user = get_object_or_404(User, pk=request.user.id)
+        group = get_object_or_404(WwmGroup, wwmgroupurl=group_url)
+        group.user.add(user)
         return render(request, '그룹페이지.html')
     else:
         login(request)

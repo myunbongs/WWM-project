@@ -77,7 +77,7 @@ def login(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-        return render(request, 'accounts/my_page.html.html')
+        return render(request, 'accounts/my_page.html')
     else:
         form = RegisterForm()
         return render(request, 'accounts/login.html')
