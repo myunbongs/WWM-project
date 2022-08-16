@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="map" style="width:500px;height:400px;"></div>
+    <!-- 
+        'station': wwmgroup.meeting_station,
+        'latitude_station': station['위도'], 
+        'longitude_station': station['경도']
+     -->
+
+    <div id="station">{{station}}</div>
+    <div id="latitude_station">{{latitude_station}}</div>
+    <div id="longitude_station">{{longitude_station}}</div>
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d69a7a5478026221a062ef69c9c7cb29&libraries=services""></script>
+
+    
+	<script>
+        var latitude_station = "{{latitude_station}}"; 
+        var longitude_station = "{{longitude_station}}"; 
+
+        latitude_station *= 1;
+        longitude_station *= 1;
+
+
+        window.addEventListener('DOMContentLoaded', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        });
+        
+        function showPosition(position) {
+            var container = document.getElementById('map');
+            var options = {
+                center: new kakao.maps.LatLng(longitude_station, latitude_station),
+                level: 3
+            };
+            var map = new kakao.maps.Map(container, options);
+
+        }
+        
+	</script>
+</body>

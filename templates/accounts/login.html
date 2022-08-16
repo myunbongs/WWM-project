@@ -1,0 +1,14 @@
+{% load static %}
+{% load socialaccount %}
+<h1>Login</h1>
+{% if user.is_authenticated %}
+
+{{user.username}} 님이 로그인중
+<a href="/auth/logout">로그아웃</a><br>
+
+{% else %}
+<form action="{% provider_login_url 'google' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">SIGN IN WITH GOOGLE</button>
+</form>
+{% endif %}
