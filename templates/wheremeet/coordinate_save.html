@@ -10,6 +10,13 @@
 <body>
     <input type="text" id="address_kakao" name="address" readonly />
     <button onclick="send_address(this)">저장</button>
+    
+    <p>{{ group.groupname }}</p>
+
+    {% for user in user_list %}
+    <p>{{ user.name }}</p>
+    <p>{{ user.address }}</p>
+    {% endfor %}
 
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -64,6 +71,7 @@
                 var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
                 coordinate = {
+                    'address': document.getElementById("address_kakao").value, 
                     'latitude': result[0].x, 
                     'longitude': result[0].y
                 }
@@ -75,6 +83,7 @@
                     datatype: 'json', 
                 }).done(function (data) {
                     alert("주소 전송에 성공하였습니다.");
+                    window.location.href = "{% url 'wheremeet-result' group.id %}";
                 }).fail(function (data) {
                     alert("전송 중 서버와의 통신에 문제가 발생하였습니다.\n원인: " + data.reason);
                 })

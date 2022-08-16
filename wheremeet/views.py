@@ -6,8 +6,18 @@ import pandas as pd
 
 from wwmgroup.models import WwmGroup
 
-def main(reqeust):
-    return render(reqeust, 'wheremeet/coordinate_save.html')
+def main(reqeust, group_pk):
+
+    wwmgroup = WwmGroup.objects.get(id=group_pk)
+
+    user_list = wwmgroup.user.all()        
+
+    context = {
+        'group': wwmgroup, 
+        'user_list': user_list 
+    }
+
+    return render(reqeust, 'wheremeet/coordinate_save.html', context)
 
 # 참고 로직: https://coding-god.tistory.com/72
 
@@ -18,11 +28,14 @@ def save_coordinate(request):
         coordinate = json.loads(request.body)
 
         current_user = request.user
+
+        address = coordinate['address']
         latitude= float(coordinate['latitude'])
         longitude= float(coordinate['longitude'])
 
         print(latitude, longitude)
 
+        current_user.address = address
         current_user.latitude = latitude
         current_user.longitude = longitude
 
