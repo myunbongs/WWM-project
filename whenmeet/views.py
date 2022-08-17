@@ -1,8 +1,13 @@
+from contextlib import redirect_stderr
 from django.shortcuts import render
+from django.utils.dateformat import DateFormat
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from wwmgroup.models import WwmGroup
 from accounts.models import User
-from datetime import timedelta
-# 1-1. 그룹타임 테이블 뿌리는 view -> group_id를 받아야됨
+from datetime import timedelta, datetime
+import json
+
 def post_group_timetable(request,pk):
     if request.method == 'GET':
         date = []
@@ -29,15 +34,26 @@ def post_group_timetable(request,pk):
 # 1-2. 개인타임 테이블 뿌리는 view -> 시작일을 name = startdate 로 받아야됨
 def post_personal_timetable(request):
     user = User.objects.get(id = '1')
-    start = get_weekday(request.POST.get('startdate'))
-    timetable = user.avaliablity_days_time
-    timetable = timetable[start*24:]+timetable[:start*24]
+    startdate = DateFormat(datetime.now()).format('Y-m-d')
+    enddate = DateFormat(datetime.now()+timedelta(days=6)).format('Y-m-d')
+    
+    days = ['월','화','수','목','금','토','일']
+    date = []
+    day_count = 7
+    for single_date in (datetime.now() + timedelta(n) for n in range(day_count)):
+        date.append(days[get_weekday(single_date)])
+    
+    start = get_weekday(datetime.now())
+    timetable = user.avaliablity_days_time[24*start:]+user.avaliablity_days_time[0:24*start]
+    
 
     context = {
             'timetable' : timetable, #string 형으로 반환
-            'startdate' : start, # index
+            'startdate' : startdate,
+            'enddate' : enddate,
+            'date' : date,
     }
-    return render(request,'test.html',context)
+    return render(request,'mytimetable.html',context)
 # 2-1. 그룹원들 타임 테이블 취합하는 view 
 # - wwmgroup modeld의 avaliablity_cal_length 속성 사용 
 # - 유저의 avaliablity_days_time가 일주일 기준으로 월요일부터 총 24글자씩이라고 가정
@@ -66,6 +82,23 @@ def create_group_timetable(group_id,start_date,end_date):
     for bind in binds:
         timetable.append([users[i] for i in range(len(bind)) if bind[i]=='0'])
     return timetable
+
+@csrf_exempt
+def edit_personal_timetable(request):
+
+    if request.method == 'POST':
+        today = get_weekday(datetime.now())
+        today = -1*(today)
+        #user = User.objects.get(id = request.user.id)
+        user = User.objects.get(id = '1')#테스트용 지워야됨
+        data = request.POST.get('timetable')
+        print(data)
+        data = data[24*today:]+data[0:24*today]
+        user.avaliablity_days_time = data
+        user.save()
+        
+        return HttpResponse()
+
 # 2-2. 시작 요일 구하는 view
 # - 숫자 return 0(월), 1(화), 2(수) …  
 # [python에서 datetime  불러와서 요일 구하는 로직] : https://ddolcat.tistory.com/688
