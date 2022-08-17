@@ -1,0 +1,159 @@
+.title-wrap{
+    width: 1250px;
+    margin: auto;
+    position: relative;
+}
+
+.title {
+    position:relative;
+    width: 1250px;
+    height : 140px;
+    margin: auto;
+    z-index: 0;
+    background-color: #445aff;
+    border-radius: 30px 30px 0% 0%;
+}
+
+.titleText{
+    position: absolute;
+    top: 10%;
+    left: 18%;
+    width: 100%;
+    transform: translate(-50%, -0%);
+    font-size: 35px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#dateBox{
+    position: absolute;
+    background-color: #2d3caf;
+    top: 20%;
+    left: 70%;
+    height: 50px;
+    width: 250px;
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 10px 5px #24318e;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+table {
+    border-collapse: collapse;
+    border-top: 1px solid #828282;
+    border-left: 1px solid #828282;
+    width: 1250px;
+    margin: auto;
+   }
+
+table td {
+    width:50px;
+    height:50px;
+    text-align:center;
+    vertical-align:middle;
+    background-color: #FFFFFF;
+    border-bottom:1px solid #828282;
+    border-right:1px solid #828282;
+}
+
+table th{
+    width:50px;
+    height:50px;
+    text-align:center;
+    vertical-align:middle;
+    background-color: #e5e5e5;
+    border-bottom:1px solid #828282;
+    border-right:1px solid #828282;
+    color:#828282;
+    font-size: 28px;
+}
+
+#tableDays {
+    width:50px;
+    height:50px;
+    text-align:center;
+    vertical-align:middle;
+    border-bottom:1px solid #828282;
+    border-right:1px solid #828282;
+    color:#828282;
+    background-color: #FFFFFF;
+}
+
+table td.highlighted {
+    background-color:	#e8f2e6;
+}
+/* 
+.fixedCal{
+    background-color: #ffe3de;
+} */
+/* 
+#inform_img{
+    position: relative;
+    width:25px;
+    height:25px;
+    left:20px;
+    top: 80px;
+} */
+
+#inform_img{
+    position: relative;
+    transform: translate(60%, 0%);
+} 
+
+/* #informBox {
+    position: absolute;
+    background-color: #445aff;
+    padding: inherit;
+    top: 400px;
+    left: 10px;
+    padding: 5%;
+    border-radius: 15px;
+    display: none;
+    color:#FFFFFF;
+    border-radius: 15px;
+} */
+
+#informBox {
+    position: absolute;
+    transform: translate(1%, -90%);
+}
+
+button{
+    background:#445aff;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    margin: 10px;
+  }
+  button:hover{
+    background:#fff;
+    color:#445aff
+  }
+  button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #445aff;
+    transition:400ms ease all;
+  }
+  button:after{
+    right:inherit;
+    top:inherit;
+    left:0; 
+    bottom:0;
+  }
+  button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
