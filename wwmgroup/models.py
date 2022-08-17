@@ -27,11 +27,4 @@ class WwmGroup(models.Model):
         self.avaliablity_days_time = {(self.enddate - self.startdate) * 24} * "0"
         return self.avaliablity_days_time
 
-    @property
-    def generate_random_slug_code(length=8):
-        """
-    generates random code of given length
-    """
-        return base64.urlsafe_b64encode(
-            codecs.encode(uuid.uuid4().bytes, "base64").rstrip()
-        ).decode()[:length]
+

@@ -5,6 +5,10 @@ from accounts.models import User
 from wwmgroup.forms import groupForm
 from wwmgroup.models import WwmGroup
 
+import base64
+import codecs
+import uuid
+
 
 # 1. 그룹 생성하는 view,
 # - 생성하는 순간 그룹장.그룹 고유 url 만든다.
@@ -14,8 +18,7 @@ def groupcreate(request):
     user = get_object_or_404(User, pk=request.user.id)
     # 유저 아이디 받아옴.
     if request.method == 'POST':
-        group = WwmGroup.objects.create(leader_email=request.user.email,
-                                        wwmgroupurl=WwmGroup.generate_random_slug_code)
+        group = WwmGroup.objects.create(leader_email=request.user.email, wwmgroupurl=generate_random_slug_code(8))
         form = groupForm(request.POST, instance=group)
         group.user.add(user)
         if form.is_valid():
@@ -74,3 +77,12 @@ def showgroup(request, group_url):
         return render(request, '그룹페이지.html', {'group': group})
     else:
         return render(request, '그룹에 가입 되어있지 않음.html')
+
+
+def generate_random_slug_code(length):
+        """
+    generates random code of given length
+    """
+        return base64.urlsafe_b64encode(
+            codecs.encode(uuid.uuid4().bytes, "base64").rstrip()
+        ).decode()[:length]
