@@ -1,0 +1,247 @@
+html,body {
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        margin: 0;
+        text-align: center;
+}
+
+.show {
+    display: block !important;
+}
+
+.blur-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(bg.jpg);
+    -webkit-filter: blur(5px); 
+    -moz-filter: blur(5px); 
+    -o-filter: blur(5px); 
+    -ms-filter: blur(5px); 
+    filter: blur(5px);
+    z-index: -1; 
+    content: "";
+}
+
+.hiddenbox {
+    margin-top: 38%;
+    text-align: center;
+    margin-left: 46.5%;
+}
+
+.groupbox {
+    display: none;
+    position: absolute;
+    border : 1px solid #FFFFFFFF;
+    background-color: white;
+    border-radius : 20px;
+    width: 500px;
+    height: 400px;
+    box-shadow: 4px 4px 4px 4px grey;
+    transform: translate(-38%, -120%);
+}
+
+.groupName {
+    margin-top: 35%;
+}
+
+#input1 {
+    text-align: center;
+    width: 90%;
+    height: 40px;
+    background-color: #E1E1E3;
+    border : 1px solid #E1E1E3;
+    border-radius : 5px;
+
+}
+/* header {
+    display: flex;
+    width: 100%;
+    background-color: #E5EAFE;
+    height: 80px;
+} */
+
+.topBar {
+    display: flex;
+    width: 100%;
+    background-color: #E5EAFE;
+    height: 40px;
+}
+
+.topBar2 {
+    margin-top: 40px;
+    position: absolute;
+    width: 100%;
+    background-color: #DBE0F1;
+    height: 5px;
+}
+
+.mainLogo {
+    margin-left: 15px;
+    margin-bottom: 1px;
+    float: left;
+    clear: both;
+}
+
+.profile {
+    width: 15%;
+    margin-left: 80%;
+    display: flex;
+    float: right;
+}
+
+.userName {
+    margin-left: 7%;
+    margin-top: 9.5%;
+    float: right;
+} 
+
+.icon {
+    text-align: center;
+    
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    color: #466FFF;
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+/* REMOVE SECOND CALENDAR */
+
+.daterangepicker {
+    position: absolute;
+    display: block;
+}
+
+.daterangepicker .drp-calendar.right {
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+}
+
+.daterangepicker .drp-calendar.right tbody {
+    display: none !important;
+}
+
+.daterangepicker .drp-calendar.right thead > tr:nth-child(2) {
+    display: none !important;
+}
+
+.daterangepicker .drp-calendar.right th.month {
+    display: none !important;
+}
+
+.daterangepicker .drp-calendar.right .calendar-table {
+    background: transparent !important;
+}
+
+.daterangepicker .daterangepicker.ltr .ranges, .daterangepicker.ltr .drp-calendar {
+    float: none !important;
+}
+
+.daterangepicker .drp-calendar.right .daterangepicker_input {
+    position: absolute !important;
+}
+
+/* REMOVE SECOND CALENDAR */
+
+
+.container {
+    margin-left: 43%;
+}
+/* 
+.makeRoom {
+    margin : 20px; 
+    padding : 30px;
+    width: 170px;
+    height: 20px;
+    background-color: #FFC7BD;
+    border-radius : 60px;
+    border: 0;
+    box-shadow: 4px 4px 4px grey;
+} */
+
+.Room {
+    text-align: center;
+    font-size: 1em;
+    color: #DB615C;
+    transform: translate(0%, 55%);
+} 
+
+.Room2 {
+    font-weight: bolder;
+    text-align: center;
+    font-size: 1.75em;
+    color: #DB615C;
+    transform: translate(0%, 60%);
+} 
+
+.makeRoom {
+    cursor: pointer;
+    text-align: center;
+    border-radius : 60px;
+    background-color: #FFC7BD;
+    width: 26%;
+    height: 70px;
+
+}
+.makeRoom2 {
+    margin-top: 20%;
+    margin-left: 28%;
+    cursor: pointer;
+    text-align: center;
+    border-radius : 60px;
+    background-color: #FFC7BD;
+    width: 42%;
+    height: 70px;
+
+}
+.makeRoom:hover {
+    background-color: #f7c1b7;
+}
+
+.makeRoom2:hover {
+    background-color: #f7c1b7;
+}
+
+footer {
+    margin-top: 20px;
+    width: 100%;
+    height: 0px;
+    bottom: 0px;
+    position: absolute;
+    border-top: 1px solid #c4c4c4;
+    padding-top: 15px;
+    color: #808080;
+    font-size: 11px;
+  }
+  
+  footer a {
+    display: inline-block;
+    margin: 0 20px 10px 20px;
+    color: #808080; font-size: 11px;
+  }
+  
+  footer a:visited {
+    color: #808080;
+  }
+  
+  footer p {
+    margin-top: 0; margin-bottom: 0;   
+  }
+  
+  footer p span {
+    display: inline-block;
+    margin-left: 20px;
+  }
