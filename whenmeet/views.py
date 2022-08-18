@@ -53,7 +53,7 @@ def post_personal_timetable(request):
             'enddate' : enddate,
             'date' : date,
     }
-    return render(request,'mytimetable.html',context)
+    return render(request,'whenmeet/mytimetable.html',context)
 # 2-1. 그룹원들 타임 테이블 취합하는 view 
 # - wwmgroup modeld의 avaliablity_cal_length 속성 사용 
 # - 유저의 avaliablity_days_time가 일주일 기준으로 월요일부터 총 24글자씩이라고 가정
