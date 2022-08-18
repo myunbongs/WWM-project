@@ -1,3 +1,4 @@
+//최종본
 //초기 표 생성
 //지정날짜만큼 표 생성
 
@@ -59,7 +60,13 @@ function leftPad(value) {
   
       document.getElementById('dateBox').innerText = startdate + "~" + enddate;
     }
-  
+    const ourtable = document.getElementById('our_table') //our_table 선택
+    for (var i=1; i<=7; i++){
+      for (var j=1; j<=row - 1; j++){
+          ourtable.rows[i].cells[j].classList.add('checkbox');
+        }
+      }
+
   // //myCal list받아오기 ~ 아래의 이 데이터를 받아왔다고 가정했을 때.
   let myCalStr = timetable
   $(document).ready(function ()
@@ -102,7 +109,7 @@ function leftPad(value) {
   
   // 드래그했을 때 table 색깔이 변함 - 가능시간 / 불가능 시간
   function is_checked() {
-    const checkbox = document.getElementById('checkbox');
+    const checkbox = document.getElementsByClassName('checkbox');
     const is_checked = checkbox.checked;
     console.log(is_checked);
   }
@@ -152,19 +159,13 @@ function leftPad(value) {
   {
     var row = 25;
     $('#save_button').click(function () {
-      const is_checked = document.getElementById("checkbox").checked;
       const mytable = document.getElementById("our_table");
       for (var i=1; i<col; i++){
         for (var j=1; j<=row-1; j++){
-          if (is_checked == false) { //일정 있는 시간 드래그 모드
+          //일정 있는 시간 드래그 모드
             if (mytable.rows[i].cells[j].classList.contains("highlighted")){
               myCal.push('1');
             } else { myCal.push('0'); }
-          } else { //일정 없는 시간 드래그 모드
-            if (mytable.rows[i].cells[j].classList.contains("highlighted")){
-              myCal.push('0');
-            } else { myCal.push('1'); }          
-          }
         }
       }
       console.log(myCal);
