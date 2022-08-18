@@ -9,19 +9,16 @@ from .forms import RegisterForm
 # 그룹리스트 전달하는 뷰
 # 유저가 속한 그룹들 찾기 - 그룹 이름, 그룹원 출력
 def user_grouplist(request):
-    group_list = WwmGroup.objects.filter(user=request.user)
+    group_list = list(WwmGroup.objects.filter(user=request.user))
     user_list = []
     for group in group_list:
-        user_list += group.user.all()
+        user_list.append(list(group.user.all()))
 
-    context = {
-        'group_list': group_list,
-        'user_list': user_list,
-    }
+    my_list = zip(group_list,user_list)
 
     if group_list is not None:
         # 그룹 이름과 그룸원 출력 
-        return render(request, 'accounts/my_page.html', context)
+        return render(request, 'accounts/my_page.html',{'my_list':my_list})
     else:
         return redirect('/')
 
@@ -83,3 +80,7 @@ def login(request):
     else:
         form = RegisterForm()
         return render(request, 'accounts/login.html', {'form': form})
+
+# 마이페이지 처음 화면
+def my_home(request) :
+    return render(request,'accounts/home.html')
