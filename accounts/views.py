@@ -75,9 +75,11 @@ def find_start(date):
 def login(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
+        print(request)
         if form.is_valid():
             user = form.save()
-        return render(request, 'accounts/my_page.html.html')
+            user.save()
+        return render(request, 'accounts/my_page.html')
     else:
         form = RegisterForm()
-        return render(request, 'accounts/login.html')
+        return render(request, 'accounts/login.html', {'form': form})
