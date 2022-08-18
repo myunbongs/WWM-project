@@ -1,0 +1,233 @@
+.title-wrap{
+    width: 1250px;
+    margin: auto;
+    position: relative;
+}
+
+.title-wrap{
+    width: 1250px;
+    margin: auto;
+    position: relative;
+}
+
+.title {
+    position:relative;
+    width: 1250px;
+    height : 140px;
+    margin: auto;
+    z-index: 0;
+    background-color: #445aff;
+    border-radius: 30px 30px 0% 0%;
+}
+
+.titleText{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 100%;
+    transform: translate(-50%, -0%);
+    font-size: 35px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#dateBox{
+    position: absolute;
+    background-color: #2d3caf;
+    top: 20%;
+    left: 90%;
+    height: 50px;
+    width: 250px;
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 10px 5px #24318e;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding-top: 30px;
+    padding-left: 0px;
+}
+
+table {
+    border-collapse: collapse;
+    border-top: 1px solid #828282;
+    border-left: 1px solid #828282;
+    width: 1250px;
+    margin: auto;
+   }
+
+/* table td {
+    width:50px;
+    height:50px;
+    text-align:center;
+    vertical-align:middle;
+    background-color:gray;
+    border-bottom:1px solid #828282;
+    border-right:1px solid #828282;
+} */
+
+table th{
+    width:50px;
+    height:50px;
+    text-align:center;
+    vertical-align:middle;
+    background-color: #e5e5e5;
+    border-bottom:1px solid #828282;
+    border-right:1px solid #828282;
+    color:#828282;
+    font-size: 28px;
+}
+
+#tableDays {
+    width:50px;
+    height:50px;
+    text-align:center;
+    vertical-align:middle;
+    border-bottom:1px solid #828282;
+    border-right:1px solid #828282;
+    color:#828282;
+    background-color: #FFFFFF;
+}
+
+table td.highlighted {
+    background-color:	#e8f2e6;
+}
+
+button{
+    background:#fcf5f2;
+    color:#db615c;
+    border:none;
+    position:relative;
+    height:40px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    margin: 10px;
+    border-radius: 30px;
+    right: 12%;
+    box-shadow: 5px 5px 5px #c0c0c0;
+  }
+  button:hover{
+    background:#db615c;
+    color:#fcf5f2;
+  }
+  button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #fcf5f2;
+    transition:400ms ease all;
+  }
+  button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+
+.btns{
+    text-align: right;
+} 
+
+/* .main_btn {
+	background:linear-gradient(to bottom, #db605c 5%, #ce0100 100%);
+	background-color:#db605c;
+	border-radius:42px;
+	display:inline-block;
+	cursor:pointer;
+	color:#fcf5f2;
+	font-family:Arial;
+	font-size:28px;
+	font-weight:bold;
+	padding:1px 7px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #b23e35;
+    position:relative;
+    left:90%;
+}
+.main_btn:hover {
+	background:linear-gradient(to bottom, #ce0100 5%, #db605c 100%);
+	background-color:#ce0100;
+} */
+
+
+        
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    background-color: rgba(0, 0, 0, 0.2);
+
+  } 
+
+.blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(bg.jpg);
+    -webkit-filter: blur(5px); 
+    -moz-filter: blur(5px); 
+    -o-filter: blur(5px); 
+    -ms-filter: blur(5px); 
+    filter: blur(5px);
+    z-index: -1; 
+    content: "";
+}
+
+
+.modal.show {
+    display: block;
+  }
+
+.modal.none {
+    display: none;
+}
+
+.modal_body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 200px;
+    height: 200px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.result-time{
+    position: relative;
+    top: 5%;
+    left: 200px;
+    font-size: 35px;
+    text-align: left;
+    color: black;
+}
+
+#result{
+    color: #445aff;
+    text-decoration:underline;
+    font-style: italic;
+}
