@@ -6,14 +6,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base1.css' %}" />
     <title>그룹 목록</title>
     <div class="topBar">
         <div class="mainLogo">
             <img src="{% static 'img/MainLogo.png' %}">
         </div>
         <div class="profile">
-            <img src="{% static 'img/profile img.png' %}">
-            <p class="userName">{{ user.first_name }} 님</p>
+            <img href="/auth/logout" src="{% static 'img/profile img.png' %}">
+            <p class="userName" href="/auth/logout">{{ user.first_name }} 님</p>
+            <a href="/auth/logout" >로그아웃</a>
         </div>
     </div>
     <div class="topBar2"></div>

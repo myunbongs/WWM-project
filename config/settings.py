@@ -200,3 +200,5 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 LOGIN_REDIRECT_URL = '/accounts/my_home'  # 로그인 후 리다이렉트 될 경로
+
+ACCOUNT_LOGOUT_ON_GET = True

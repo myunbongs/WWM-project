@@ -1,3 +1,5 @@
+{% extends 'accounts/base1.html' %}
+{% block content %}
 {% load static %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -6,7 +8,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title></title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/myTimeTable.css' %}"/>
-  <div class="topBar">
+  <!-- <div class="topBar">
     <div class="mainLogo">
         <img src="{% static 'img/MainLogo.png' %}">
     </div>
@@ -15,7 +17,7 @@
         <p class="userName">{{ user.first_name }} 님</p>
     </div>
 </div>
-<div class="topBar2"></div>
+<div class="topBar2"></div> -->
 <br>
 <br>
 </head>
@@ -87,3 +89,4 @@
   <script src="{% static 'js/myTimeTable.js' %}"></script>
 </body>
 </html>
+{% endblock %}

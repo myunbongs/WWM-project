@@ -5,7 +5,11 @@
     margin: 0;
     text-align: center;
 } */
-
+/* 
+#logout {
+    transform: translate(5%,3%);
+} */
+/* 
 .topBar {
     display: flex;
     width: 100%;
@@ -38,7 +42,8 @@
     margin-left: 7%;
     margin-top: 7%;
     float: right;
-}
+} */
+
 .icon {
     text-align: center;
     
