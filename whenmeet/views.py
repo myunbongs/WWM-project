@@ -8,10 +8,10 @@ from accounts.models import User
 from datetime import timedelta, datetime
 import json
 
-def post_group_timetable(request,pk):
+def post_group_timetable(request,group_url):
     if request.method == 'GET':
         date = []
-        group = WwmGroup.objects.get(id = pk)
+        group = WwmGroup.objects.get(wwmgroupurl=group_url)
         user_list = group.user.all()  
 
         start_date = group.startdate
@@ -20,7 +20,7 @@ def post_group_timetable(request,pk):
         for single_date in (start_date + timedelta(n) for n in range(day_count)):
             date.append(str(single_date))
         user_count = len([user for user in group.user.all()])
-        timetable = create_group_timetable(pk,start_date,end_date)
+        timetable = create_group_timetable(group.pk,start_date,end_date)
         result = get_result(timetable,user_count)
         context = {
             'user_list': user_list, 
@@ -33,6 +33,8 @@ def post_group_timetable(request,pk):
             'result_count' : user_count - len(timetable[result[0]]),
             'user_count' : user_count,
             "wwmgroupurl": group.wwmgroupurl,
+            "laeder_email": group.leader_email,
+            "user_email": request.user.email,
         }
         return render(request,'whenmeet/index.html',context)
 # 1-2. 개인타임 테이블 뿌리는 view -> 시작일을 name = startdate 로 받아야됨

@@ -26,8 +26,14 @@ def groupcreate(request):
             group.save()
             return redirect('main')#그룹 만들고 어디로 이동할지
     else:
+        user = get_object_or_404(User, pk=request.user.id)
         form = groupForm()
-        return render(request, 'wwmgroup/groupcreate.html', {'form': form})
+        context = {
+            "username": user.username,
+            "leaderemail": user.email,
+            'form': form
+        }
+        return render(request, 'whenmeet/datepicker.html', context)
 
 
 # 2. 그룹장 변경 view
@@ -45,12 +51,14 @@ def changeleader(request, group_url):
 
 # 3. 그룹원 추방 view
 # - 그룹장만 가능
-def banuser(request, group_url, ban_user):
-    group = WwmGroup.objects.get(wwmgroupurl=group_url)
-    banuser = User.objects.get(email=ban_user)
-    if banuser is not None:
-        WwmGroup.objects.get(user=banuser, wwmgroupurl=group.wwmgroupurl).delete()
-    return render(request, '그룹화면.html')
+def banuser(request, pk, ban_user):
+    group = WwmGroup.objects.get(pk=pk)
+    if request.user.email == group.leader_email:
+        banuser = get_object_or_404(User, email=ban_user)
+        group.user.remove(banuser)
+        return render(request, '유저추방완료.html')
+    else:
+        return render(request, '유저추방실패.html')
 
 
 # 5 그룹원 리스트 출력하는 view
@@ -83,9 +91,9 @@ def joingroup(request, group_url):
         return render(request, '그룹에 가입 되어있지 않음.html')"""
 
 def leavegroup(request, group_url):
-    group=WwmGroup.objects.get(wwmgroupurl=group_url)
-    user = get_object_or_404(pk=request.user.id)
-    group.objects.get(user=user).delete()
+    group = get_object_or_404(WwmGroup, wwmgroupurl = group_url)
+    user = get_object_or_404(User, pk=request.user.id)
+    group.user.remove(user)
     return render(request, "main")
 
 
