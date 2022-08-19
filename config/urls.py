@@ -19,9 +19,10 @@ from django.urls import path, include
 import accounts.views
 
 urlpatterns = [
-    path('', accounts.views.login, name='login'),
+    path('login/', accounts.views.login, name='login'),
     path('admin/', admin.site.urls),
     path('', include('whenmeet.urls')),
+    path('',accounts.views.home, name = "home"),
     path('', include('wheremeet.urls')),
     path('accounts/', include('accounts.urls')),
     path('auth/', include('allauth.urls')),
