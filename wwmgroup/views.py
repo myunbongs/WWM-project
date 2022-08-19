@@ -12,7 +12,7 @@ import uuid
 def final_result(request, group_pk):
     group = get_object_or_404(WwmGroup, pk=group_pk)
     user = get_object_or_404(User, pk=request.user.id)
-    if group.user.get(email=user.email):
+    if group.user.get(pk=user.pk):
         return render(request, 'wwmgroup/final_result.html', context={'group_pk':group_pk})
     else:
         return render(request, 'wwmgroup/failconnect.html')
@@ -34,7 +34,7 @@ def groupcreate(request):
         if form.is_valid():
             group = form.save()
             group.save()
-            return redirect(f'wwmgroup/{group.pk}')#그룹 만들고 어디로 이동할지
+            return redirect('/accounts/my_home')#그룹 만들고 어디로 이동할지
     else:
         user = get_object_or_404(User, pk=request.user.id)
         form = groupForm()
