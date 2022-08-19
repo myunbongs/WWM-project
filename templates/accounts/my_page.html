@@ -23,7 +23,7 @@
                     {% endfor %}
                 </div>             
             </div>    
-            <div class="groupSpace"><p class="start"><a href="{% url 'whenmeet/group_timetable/{{ wwmgroupurl }}' %}">그룹 스페이스</p></div>
+            <a href="{% url 'final_result' group.id %}"><div class="groupSpace"><p class="start">그룹 스페이스</p></div></a>
         </div>
         <br>
         <br>
