@@ -1,4 +1,7 @@
+{% extends 'accounts/base1.html' %}
+
 {% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>달력 날짜 설정</title>
     <!-- <header>123</header> -->
-    <div class="topBar">
-      <div class="mainLogo">
-          <img src="{% static 'img/MainLogo.png' %}">
-      </div>
-      <div class="profile">
-          <img src="{% static 'img/profile img.png' %}">
-          <p class="userName">호진 님</p>
-      </div>
   </div>
   <div class="topBar2"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -100,3 +95,5 @@
     <script src="{% static 'js/datepicker.js' %}"></script>
 </body>
 </html>
+
+{% endblock %}

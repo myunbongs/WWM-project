@@ -9,4 +9,5 @@ urlpatterns = [
     path('<group_url>/leave', views.leavegroup, name='leavegroup'),
     path('<group_url>/changeleader', views.changeleader, name='changeleader'),
     path('<int:pk>/banuser/<ban_user>', views.banuser, name='banuser'),
+    path('input_address/<int:pk>', views.input_address, name='input_address'),
 ]

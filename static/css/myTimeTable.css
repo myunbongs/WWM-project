@@ -49,6 +49,7 @@
 }
 
 .titleText{
+    margin-top: 40px;
     position: absolute;
     top: 10%;
     left: 18%;
@@ -60,12 +61,13 @@
 }
 
 #dateBox{
+    margin-top: 10px;
     position: absolute;
     background-color: #2d3caf;
     top: 20%;
     left: 70%;
-    height: 50px;
-    width: 250px;
+    height: 80px;
+    width: 310px;
     border-radius: 15px;
     box-shadow: inset 5px 5px 10px 5px #24318e;
     font-size: 20px;

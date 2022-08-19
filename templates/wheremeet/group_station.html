@@ -48,7 +48,7 @@
     <div>모임 장소</div>
     <p>{{station}}</p></br>  
     <button type="button" class="goBack">뒤로가기</button>
-    <button type="button" class="goSpace">그룹 스페이스</button>
+    <button type="button" class="goSpace" onClick = "location.href = '{% url 'final_result' group_pk %}'">그룹 스페이스</button>
 </div>
     <!-- 
         'station': wwmgroup.meeting_station,

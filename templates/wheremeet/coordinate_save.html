@@ -1,3 +1,5 @@
+{% extends 'accounts/base1.html' %}
+{% block content %}
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -9,7 +11,7 @@
     <link rel="stylesheet" href="/static/css/style.css" />
   </head>
   <body>
- 
+
     <div id="content">
       <div>
         <p id="start_title">언제만나 팀의 출발지점 확인</p>
@@ -113,7 +115,7 @@
         })
           .done(function (data) {
             alert("주소 전송에 성공하였습니다.");
-            window.location.href = "{% url 'wheremeet-result' group.id %}";
+            window.location.href = "{% url 'wheremeet-result' pk %}";
           })
           .fail(function (data) {
             alert(
@@ -125,3 +127,5 @@
     </script>
   </body>
 </html>
+
+{% endblock %}

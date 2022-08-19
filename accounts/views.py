@@ -6,6 +6,9 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm
 
 
+def home(request):
+    return render(request,"accounts/main_page.html")
+
 # 그룹리스트 전달하는 뷰
 # 유저가 속한 그룹들 찾기 - 그룹 이름, 그룹원 출력
 def user_grouplist(request):
@@ -79,7 +82,7 @@ def login(request):
         return render(request, 'accounts/my_page.html')
     else:
         form = RegisterForm()
-        return render(request, 'accounts/login_page.html', {'form': form})
+        return render(request, 'accounts/login.html', {'form': form})
 
 # 마이페이지 처음 화면
 def my_home(request) :
