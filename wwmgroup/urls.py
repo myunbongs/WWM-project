@@ -8,4 +8,5 @@ urlpatterns = [
     path('<group_url>/leave', views.leavegroup, name='leavegroup'),
     path('<group_url>/changeleader', views.changeleader, name='changeleader'),
     path('<group_url>/banuser', views.banuser, name='banuser'),
+    path('group_test',views.group_test, name='group_test')
 ]

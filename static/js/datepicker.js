@@ -17,17 +17,20 @@ document.querySelector(".makeRoom").addEventListener("click", function() {
 });
 
 
-
 $(function() {
 
-    $('input[name="calender"]').daterangepicker({
-      "alwaysShowCalendars": true,
-      "autoApply": true,
-      "opens": "center"},
-        function(start, end, label) {
-          console.log('New date range selected: ' + start.format('YYYY-MM-DD') + '~' + end.format('YYYY-MM-DD'));
-        });
-        $('input[name="calender"]').data('daterangepicker').show();
-  });
+  $('input[name="calender"]').daterangepicker({
+    "alwaysShowCalendars": true,
+    "autoApply": true,
+    "opens": "center"},
+      function(start, end, label) {
+        document.getElementById("startdate").value=String(start.format('YYYY-MM-DD'))
+        document.getElementById("enddate").value=String(end.format('YYYY-MM-DD'))
+      });
+      $('input[name="calender"]').data('daterangepicker').show();
+});
 
-
+document.querySelector(".makeRoom2").addEventListener("click", function() {
+  console.log(document.getElementById("postSubmit"))
+  document.getElementById("postSubmit").click();
+});
