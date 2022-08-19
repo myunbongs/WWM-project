@@ -194,8 +194,10 @@
 
     <div class="btns">
       <button id="out-btn" onclick="window.location.href='http://127.0.0.1:8000/wwmgroup/{{wwmgroupurl}}/leave'">그룹 나가기</button>
-      <button id="invite-btn">그룹원 초대</button>
-      <button id="transfer-btn">방장 양도</button>
+        {% if laeder_email == user_email %}
+            <button id="invite-btn">그룹원 초대</button>
+            <button id="transfer-btn">방장 양도</button>
+        {% endif %}
     </div>
 
   </div>

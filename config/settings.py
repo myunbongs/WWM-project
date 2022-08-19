@@ -82,6 +82,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+X_FRAME_OPTIONS = 'ALLOWALL'
+
+XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
+
+
 ROOT_URLCONF = 'config.urls'
 
 STATIC_URL = '/static/'
@@ -195,3 +200,5 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 LOGIN_REDIRECT_URL = '/accounts/my_home'  # 로그인 후 리다이렉트 될 경로
+
+ACCOUNT_LOGOUT_ON_GET = True

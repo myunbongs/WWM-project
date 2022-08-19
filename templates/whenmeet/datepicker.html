@@ -1,4 +1,7 @@
+{% extends 'accounts/base1.html' %}
+
 {% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>달력 날짜 설정</title>
     <!-- <header>123</header> -->
-    <div class="topBar">
-      <div class="mainLogo">
-          <img src="{% static 'img/main logo.png' %}">
-      </div>
-      <div class="profile">
-          <img src="{% static 'img/profile img.png' %}">
-          <p class="userName">호진 님</p>
-      </div>
   </div>
   <div class="topBar2"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -35,7 +30,7 @@
         <br>
         <br>
         <div class="icon">
-            <img src="{% static 'img/WhenMeet.png' %}">
+            <img src="{% static 'img/Meetus.png' %}">
             </div>
             <h2>시작일과 종료일을 골라주세요<h2>
     <input type="text" name="calender" value="" />
@@ -70,13 +65,20 @@
     </div>
     </div>
 </div>
-    <div class="hiddenbox">
-        <div class="groupbox">
-            <div class="groupName"><input id="input1" placeholder="그룹 이름 입력"></input></div>
-            <div class="makeRoom2">
-                <p class="Room2">방만들기</p>
-            </div>
+<div class="hiddenbox">
+    <div class="groupbox">
+        <form method="post" action="{% url 'groupcreate' %}">
+        {% csrf_token %}
+        <div class="groupName"><input id="input1" name="groupname" placeholder="그룹 이름 입력"></div>
+        <input id="startdate" name="startdate" style=" display:none; ">
+        <input id="enddate"  name="enddate" style=" display:none; ">
+        <div class="makeRoom2">
+            <p class="Room2">방만들기</p>
         </div>
+        <input type="submit" id="postSubmit" style="display: none;">
+        </form>
+    </div>
+    </div>
         </div>
     <br>
     <footer>
@@ -93,3 +95,5 @@
     <script src="{% static 'js/datepicker.js' %}"></script>
 </body>
 </html>
+
+{% endblock %}

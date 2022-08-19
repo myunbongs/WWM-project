@@ -11,7 +11,7 @@ import json
 def post_group_timetable(request,pk):
     if request.method == 'GET':
         date = []
-        group = WwmGroup.objects.get(id = pk)
+        group = WwmGroup.objects.get(pk=pk)
         user_list = group.user.all()  
 
         start_date = group.startdate
@@ -33,11 +33,13 @@ def post_group_timetable(request,pk):
             'result_count' : user_count - len(timetable[result[0]]),
             'user_count' : user_count,
             "wwmgroupurl": group.wwmgroupurl,
+            "laeder_email": group.leader_email,
+            "user_email": request.user.email,
         }
         return render(request,'whenmeet/index.html',context)
 # 1-2. 개인타임 테이블 뿌리는 view -> 시작일을 name = startdate 로 받아야됨
 def post_personal_timetable(request):
-    user = User.objects.get(id = '1')
+    user = User.objects.get(id = request.user.id)
     startdate = DateFormat(datetime.now()).format('Y-m-d')
     enddate = DateFormat(datetime.now()+timedelta(days=6)).format('Y-m-d')
     
@@ -94,8 +96,8 @@ def edit_personal_timetable(request):
     if request.method == 'POST':
         today = get_weekday(datetime.now())
         today = -1*(today)
-        #user = User.objects.get(id = request.user.id)
-        user = User.objects.get(id = '1')#테스트용 지워야됨
+        user = User.objects.get(id = request.user.id)
+        #user = User.objects.get(id = '1')#테스트용 지워야됨
         data = request.POST.get('timetable')
         print(data)
         data = data[24*today:]+data[0:24*today]

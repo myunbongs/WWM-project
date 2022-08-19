@@ -1,0 +1,157 @@
+#full {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main {
+  text-align: center;
+}
+
+#up {
+  background-color: #445aff;
+  width: 1200px;
+  height: 100px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+#middle_title {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 700;
+  margin-left: 50px;
+  padding-top: 10px;
+}
+
+#group > span {
+  display: inline-block;
+  margin-right: -25px;
+}
+
+.user {
+  text-align: center;
+  padding-top: 3px;
+  background-color: rgb(68, 122, 122);
+  color: #ffffff;
+  border-radius: 8px;
+  border: 0px;
+  font-size: 13px;
+  margin-left: 45px;
+  display: block;
+  width: 50px;
+  height: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+  box-shadow: 0px 5px 5px #42497d;
+}
+
+#map {
+  width: 1200px;
+  height: 370px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0px 5px 5px #6b6b6b;
+}
+
+#text {
+  margin-left: 20px;
+}
+
+#count {
+  color: #445aff;
+}
+
+#middle_place {
+  color: #445aff;
+}
+
+#first_text {
+  margin-left: 150px;
+}
+
+#text {
+  margin-top: 20px;
+}
+
+#text > span {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+#result {
+  margin-left: 490px;
+  color: #f5f5f5;
+  background-color: #445aff;
+  border: 0px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 20px;
+  width: 130px;
+  height: 45px;
+  padding: 3px 5px 3px 5px;
+  box-shadow: 0px 5px 5px #42497d;
+}
+
+.modal_wrap {
+  box-shadow: 0px 7px 7px #1a1a1a;
+}
+
+.modal_wrap > div {
+  font-size: 25px;
+  font-weight: 800;
+  padding-top: 40px;
+}
+
+.modal_wrap > span {
+  display: inline-block;
+  background-color: #ec575b;
+  width: 100px;
+  height: 35px;
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 5px;
+  margin-top: 25px;
+  margin-right: 20px;
+}
+
+.modal_wrap > p {
+  display: inline-block;
+  background-color: #ec575b;
+  width: 200px;
+  height: 40px;
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 5px;
+  margin-top: 25px;
+  margin-right: 20px;
+}
+
+.modal_wrap > button {
+  border-radius: 20px;
+  border: 0px;
+  margin-top: 50px;
+  margin-right: 85px;
+  margin-left: 85px;
+  width: 130px;
+  height: 45px;
+  box-shadow: 0px 5px 5px #afafb1;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.goback {
+  background-color: #fbfbfb;
+  color: #828282;
+}
+
+.goSpace {
+  background-color: #445aff;
+  color: #f5f5f5;
+}

@@ -3,7 +3,7 @@
 {% load static %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <div class="icon">
-    <img src="{% static 'img/WhenMeet.png' %}">
+    <img src="{% static 'img/Meetus.png' %}">
     </div>
     <br>
     <h2>개인, 혹은 그룹의 시간 그래프를 사용해보세요</h2>
@@ -17,10 +17,11 @@
 
     <button id="bar2">
         <strong class="mainText2">그룹</strong>
-        <p class="img"><img src="{% static 'img/people group.png' %}"></p>
+        <p class="img"><a href="{% url 'groupcreate' %}"><img src="{% static 'img/people group.png' %}"></a></p>
+
     </button>
 </div>
-<br>
+<div class="empty"></div>
 <div class="box2">
     <button id="bar3">
         <a href="{% url 'user_grouplist' %}"><img src="{% static 'img/my group list.png' %}" class="bookimg"></a>

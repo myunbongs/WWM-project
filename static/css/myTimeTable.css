@@ -1,3 +1,37 @@
+.topBar {
+    display: flex;
+    width: 100%;
+    background-color: #E5EAFE;
+    height: 40px;
+}
+
+.topBar2 {
+    display: flex;
+    width: 100%;
+    background-color: #DBE0F1;
+    height: 4px;
+}
+
+.mainLogo {
+    margin-left: 15px;
+    margin-top: 0.2%;
+    float: left;
+    clear: both;
+}
+
+.profile {
+    width: 15%;
+    margin-left: 80%;
+    display: flex;
+    float: right;
+}
+
+.userName {
+    margin-left: 7%;
+    margin-top: 7%;
+    float: right;
+}
+
 .title-wrap{
     width: 1250px;
     margin: auto;
@@ -15,6 +49,7 @@
 }
 
 .titleText{
+    margin-top: 40px;
     position: absolute;
     top: 10%;
     left: 18%;
@@ -26,12 +61,13 @@
 }
 
 #dateBox{
+    margin-top: 10px;
     position: absolute;
     background-color: #2d3caf;
     top: 20%;
     left: 70%;
-    height: 50px;
-    width: 250px;
+    height: 80px;
+    width: 310px;
     border-radius: 15px;
     box-shadow: inset 5px 5px 10px 5px #24318e;
     font-size: 20px;

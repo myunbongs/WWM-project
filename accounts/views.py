@@ -6,6 +6,9 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm
 
 
+def home(request):
+    return render(request,"accounts/main_page.html")
+
 # 그룹리스트 전달하는 뷰
 # 유저가 속한 그룹들 찾기 - 그룹 이름, 그룹원 출력
 def user_grouplist(request):

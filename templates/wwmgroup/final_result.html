@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script type="text/javascript">
+      function change_wheremeet() {
+        // 토글 할 버튼 선택 (btn1)
+        const wheremeet = document.getElementById("wheremeet_display");
+        const whenmeet = document.getElementById("whenmeet_display");
+
+        // btn1 숨기기 (display: none)
+        if (wheremeet.style.display !== "none") {
+          wheremeet.style.display = "none";
+          whenmeet.style.display = "block";
+        }
+        // btn` 보이기 (display: block)
+        else {
+          wheremeet.style.display = "block";
+          whenmeet_display.style.display = "none";
+        }
+      }
+
+      function change_wheremmet() {
+        // 토글 할 버튼 선택 (btn1)
+        const wheremeet = document.getElementById("wheremeet_display");
+        const whenmeet = document.getElementById("whenmeet_display");
+
+        // btn1 숨기기 (display: none)
+        if (whenmeet.style.display !== "none") {
+          whenmeet.style.display = "none";
+          wheremeet.style.display = "block";
+        }
+        // btn` 보이기 (display: block)
+        else {
+          whenmeet.style.display = "block";
+          wheremeet.style.display = "none";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <button class="button" onclick="change_wheremeet()">When/Where</button>
+    <center>
+      <iframe
+        id="whenmeet_display"
+        width="1240"
+        height="1500"
+        src="{% url 'get_group_timetable' group_pk %}"
+        name="wheremeet"
+      ></iframe>
+      <iframe
+        id="wheremeet_display"
+        width="1240"
+        height="1500"
+        style="display: none"
+        src="{% url 'wheremeet-result' group_pk %}"
+        name="whenmeet"
+      ></iframe>
+    </center>
+    <!-- <button class="button" onclick="change_wheremeet()">이후</button> -->
+
+    <style>
+      .button {
+        background-color: blue;
+
+        border: none;
+
+        color: white;
+
+        /* padding: 15px 30px; */
+
+        text-align: center;
+
+        text-decoration: none;
+
+        display: inline-block;
+
+        font-size: 16px;
+
+        margin: 4px 2px;
+
+        cursor: pointer;
+      }
+    </style>
+  </body>
+</html>
