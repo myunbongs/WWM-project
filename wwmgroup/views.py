@@ -12,7 +12,7 @@ import uuid
 def final_result(request, group_pk):
     group = get_object_or_404(WwmGroup, pk=group_pk)
     user = get_object_or_404(User, pk=request.user.id)
-    if group.user.get(email=user.email):
+    if group.user.get(pk=user.pk):
         return render(request, 'wwmgroup/final_result.html', context={'group_pk':group_pk})
     else:
         return render(request, 'wwmgroup/failconnect.html')
