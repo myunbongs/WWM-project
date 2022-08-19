@@ -5,8 +5,19 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title></title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/mytimetable.css' %}"/>
-
+  <link rel="stylesheet" type="text/css" href="{% static 'css/myTimeTable.css' %}"/>
+  <div class="topBar">
+    <div class="mainLogo">
+        <img src="{% static 'img/MainLogo.png' %}">
+    </div>
+    <div class="profile">
+        <img src="{% static 'img/profile img.png' %}">
+        <p class="userName">{{ user.first_name }} 님</p>
+    </div>
+</div>
+<div class="topBar2"></div>
+<br>
+<br>
 </head>
 <body>
 
