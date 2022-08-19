@@ -71,7 +71,8 @@ def wheremeet_result(request, group_pk):
         'station': wwmgroup.meeting_station,
         'latitude_station': station['위도'], 
         'longitude_station': station['경도'],
-        'group_pk':group_pk
+        'group_pk':group_pk,
+        'groupname' : wwmgroup.groupname,
     }
 
     return render(request, 'wheremeet/group_station.html', context)

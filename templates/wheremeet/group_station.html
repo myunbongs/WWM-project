@@ -16,11 +16,11 @@
     <div id="full">
         <div id="main">
             <div id="up">
-                <div id="middle_title">언제만나 팀의 중간 지점</div>
+                <div id="middle_title">{{groupname}} 팀의 중간 지점</div>
                 <!-- user n 파트를 데이터 내 사용자명으로 받아오는 방법!! -->
                 <div id="group">
                     {% for user in user_list %}
-                    <span class="user">{{ user.first_name }}</span>
+                    <span class="user">{{ user.get_full_name }}</span>
                     {% endfor %}
                     <!-- <span id="user">{{ user.name }}</span>
                     <span id="user">{{ user.name }}</span>

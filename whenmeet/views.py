@@ -22,6 +22,7 @@ def post_group_timetable(request,pk):
         user_count = len([user for user in group.user.all()])
         timetable = create_group_timetable(pk,start_date,end_date)
         result = get_result(timetable,user_count)
+        print(timetable)
         context = {
             'user_list': user_list, 
             'groupname': group.groupname,
@@ -75,6 +76,7 @@ def create_group_timetable(group_id,start_date,end_date):
     users_timetables = [[user.name,user.avaliablity_days_time] for user in group.user.all()]
     users = [data[0] for data in users_timetables]
     availity_times = [data[1] for data in users_timetables]
+    print(availity_times)
     timetables = []
     for availity_time in availity_times:
         formatted_time = ''
@@ -86,6 +88,7 @@ def create_group_timetable(group_id,start_date,end_date):
                 formatted_time += availity_time[24*(i%7):24*((i+1)%7)]
         timetables.append(formatted_time)
     binds = list(map(list,zip(*timetables)))
+    print(binds)
     for bind in binds:
         timetable.append([users[i] for i in range(len(bind)) if bind[i]=='1'])
     return timetable
@@ -115,6 +118,7 @@ def get_weekday(date):
 
 
 def get_result(timetable,count):
+    print(timetable,count)
     min_len = count
     result = []
     for i in range(len(timetable)):

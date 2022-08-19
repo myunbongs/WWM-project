@@ -34,7 +34,7 @@ def groupcreate(request):
         if form.is_valid():
             group = form.save()
             group.save()
-            return redirect('/accounts/my_home')#그룹 만들고 어디로 이동할지
+            return redirect('my_home')#그룹 만들고 어디로 이동할지
     else:
         user = get_object_or_404(User, pk=request.user.id)
         form = groupForm()
@@ -43,7 +43,7 @@ def groupcreate(request):
             "leaderemail": user.email,
             'form': form
         }
-        return render(request, 'whenmeet/datepicker.html', context)
+        return render(request, 'accounts/datepicker.html', context)
 
 
 # 2. 그룹장 변경 view

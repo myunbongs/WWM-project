@@ -32,6 +32,7 @@
         </div>
         <h2>시작일과 종료일을 골라주세요<h2> -->
 </head>
+
 <body>
     <div class="total">
         <br>
@@ -39,11 +40,11 @@
         <br>
         <div class="icon">
             <img src="{% static 'img/Meetus.png' %}">
-            </div>
-            <h2>시작일과 종료일을 골라주세요<h2>
-    <input type="text" name="calender" value="" />
+        </div>
+        <h2>시작일과 종료일을 골라주세요<h2>
+                <input type="text" name="calender" value="" />
 
-<!-- <script type="text/javascript">
+                <!-- <script type="text/javascript">
     $(function() {
 
   $('input[name="calender"]').daterangepicker({
@@ -56,51 +57,52 @@
       $('input[name="calender"]').data('daterangepicker').show();
 });
 </script> -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <!-- <div class="hidenbox">
+                <br>
+                <br>
+                <br>
+                <br>
+                <!-- <div class="hidenbox">
     <div class="groupbox"></div>
     </div> -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container">
-    <div class="makeRoom">
-        <p class="Room">방만들기</p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="container">
+                    <div class="makeRoom">
+                        <p class="Room">방만들기</p>
+                    </div>
+                </div>
     </div>
-    </div>
-</div>
-<div class="hiddenbox">
-    <div class="groupbox">
-        <form method="post" action="{% url 'groupcreate' %}">
-        {% csrf_token %}
-        <div class="groupName"><input id="input1" name="groupname" placeholder="그룹 이름 입력"></div>
-        <input id="startdate" name="startdate" style=" display:none; ">
-        <input id="enddate"  name="enddate" style=" display:none; ">
-        <div class="makeRoom2">
-            <p class="Room2">방만들기</p>
+    <div class="hiddenbox">
+        <div class="groupbox">
+            <form method="post" action="{% url 'groupcreate' %}">
+                {% csrf_token %}
+                <div class="groupName"><input id="input1" name="groupname" placeholder="그룹 이름 입력"></div>
+                <input id="startdate" name="startdate" style=" display:none; ">
+                <input id="enddate" name="enddate" style=" display:none; ">
+                <div class="makeRoom2">
+                    <p class="Room2">방만들기</p>
+                </div>
+                <input type="submit" id="postSubmit" style="display: none;">
+            </form>
         </div>
-        <input type="submit" id="postSubmit" style="display: none;">
-        </form>
     </div>
-    </div>
-        </div>
+    
     <br>
     <footer>
-          <nav>
-              <a >우리 만나 </a> |
-              <a href='https://github.com/When-meet/WWM-project/' target='_blank'>Github</a>
-          </nav>
-          <p>
-              <span>제작자 : OOO</span><br/>
-              <span>이메일 : OOO@gmail.com</span><br/>
-              <span>Copyright 2022. WhenMeet. All Rights Reserved.</span>
-          </p>
-      </footer>
+        <nav>
+            <a>우리 만나 </a> |
+            <a href='https://github.com/When-meet/WWM-project/' target='_blank'>Github</a>
+        </nav>
+        <p>
+            <span>제작자 : OOO</span><br />
+            <span>이메일 : OOO@gmail.com</span><br />
+            <span>Copyright 2022. WhenMeet. All Rights Reserved.</span>
+        </p>
+    </footer>
     <script src="{% static 'js/datepicker.js' %}"></script>
 </body>
+
 </html>
 
