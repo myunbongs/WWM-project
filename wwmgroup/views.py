@@ -49,7 +49,7 @@ def banuser(request, group_url, ban_user):
     group = WwmGroup.objects.get(wwmgroupurl=group_url)
     banuser = User.objects.get(email=ban_user)
     if banuser is not None:
-        group.user.get(user=banuser).delete()
+        WwmGroup.objects.get(user=banuser, wwmgroupurl=group.wwmgroupurl).delete()
     return render(request, '그룹화면.html')
 
 

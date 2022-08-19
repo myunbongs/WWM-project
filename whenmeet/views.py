@@ -32,6 +32,7 @@ def post_group_timetable(request,pk):
             'result_list' : result,
             'result_count' : user_count - len(timetable[result[0]]),
             'user_count' : user_count,
+            "wwmgroupurl": group.wwmgroupurl,
         }
         return render(request,'whenmeet/index.html',context)
 # 1-2. 개인타임 테이블 뿌리는 view -> 시작일을 name = startdate 로 받아야됨
@@ -83,7 +84,7 @@ def create_group_timetable(group_id,start_date,end_date):
         timetables.append(formatted_time)
     binds = list(map(list,zip(*timetables)))
     for bind in binds:
-        timetable.append([users[i] for i in range(len(bind)) if bind[i]=='0'])
+        timetable.append([users[i] for i in range(len(bind)) if bind[i]=='1'])
     return timetable
 
 @csrf_exempt

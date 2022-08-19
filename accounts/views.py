@@ -83,4 +83,4 @@ def login(request):
 
 # 마이페이지 처음 화면
 def my_home(request) :
-    return render(request,'accounts/home.html')
+    return render(request ,'accounts/home.html')
