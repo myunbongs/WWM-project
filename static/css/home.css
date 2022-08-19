@@ -22,7 +22,7 @@
 
 .mainLogo {
     margin-left: 15px;
-    margin-bottom: 1px;
+    margin-top: 0.2%;
     float: left;
     clear: both;
 }
@@ -201,4 +201,9 @@ footer {
   footer p span {
     display: inline-block;
     margin-left: 20px;
+  }
+
+  .empty {
+      width: 100%;
+      height: 25px;
   }
