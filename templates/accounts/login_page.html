@@ -1,3 +1,5 @@
+{% load static %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./login_page.css">
+    <link rel="stylesheet" href="{% static 'css/login_page.css' %}">
     <div class="mainLogo">
-        <img src="./MainLogo.png">
+        <img src="{% static 'img/MainLogo.png' %}">
     </div>
 </head>
 <body>
@@ -16,8 +18,10 @@
     <h1>로그인</h1>
     <div id="ball"></div>
     <div class="container">
-    <div id="box" >
-        <img id= "img" src="./google.png">
+        <form action="{% provider_login_url 'google' %}" method="post">
+            {% csrf_token %}
+            <button id="box" type="submit" style="display: block"><img id= "img" src="{% static 'img/google.png' %}"></button>
+        </form>
     </div>
     <div id="ball2"></div>
 </div>
