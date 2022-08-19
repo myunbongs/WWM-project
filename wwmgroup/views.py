@@ -117,3 +117,6 @@ def generate_random_slug_code(length):
 
 def group_test(request) :
     return render(request,'whenmeet/datepicker.html')
+
+def input_address(request,pk) :
+    return render(request,'wheremeet/coordinate_save.html',{'pk':pk})
