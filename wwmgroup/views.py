@@ -9,6 +9,8 @@ import base64
 import codecs
 import uuid
 
+def final_result(request, group_pk):
+    return render(request, 'wwmgroup/final_result.html', context={'group_pk':group_pk})
 
 # 1. 그룹 생성하는 view,
 # - 생성하는 순간 그룹장.그룹 고유 url 만든다.

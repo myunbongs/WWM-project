@@ -52,6 +52,9 @@ def wheremeet_result(request, group_pk):
 
     user_list = wwmgroup.user.all()
 
+    user_count = len([user for user in wwmgroup.user.all()])
+    user_coors = list(wwmgroup.user.all().values('name', 'latitude', 'longitude'))
+
     latitude, longitude = cal_center(user_list)
 
 
@@ -62,6 +65,9 @@ def wheremeet_result(request, group_pk):
     wwmgroup.save()
 
     context = {
+        'user_coors': user_coors, 
+        'user_list': user_list,
+        'user_count': user_count,
         'station': wwmgroup.meeting_station,
         'latitude_station': station['위도'], 
         'longitude_station': station['경도']
@@ -102,7 +108,7 @@ def cal_close_station(latitude, longitude, file_name):
     station = df.loc[df["최종 거리"].idxmin()]
 
     print(station)
-
+    print(station.center_latitude, station.center_longitude ) 
     return station
 
 # 두 점 사이의 거리 구하기 

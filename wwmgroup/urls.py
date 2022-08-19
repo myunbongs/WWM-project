@@ -2,6 +2,7 @@ from django.urls import path
 from wwmgroup import views
 
 urlpatterns = [
+    path('<int:group_pk>/', views.final_result, name='final_result'), 
     path('banuser', views.banuser, name='banuser'),
     path('join/<group_url>', views.joingroup, name='joingroup'),
     path('groupcreate', views.groupcreate, name='groupcreate'),
