@@ -32,3 +32,8 @@
     margin-top: 7%;
     float: right;
 }
+
+#logout {
+    width: 20px;
+    height: 20px;
+}
