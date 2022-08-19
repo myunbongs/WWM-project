@@ -79,7 +79,7 @@ def login(request):
         return render(request, 'accounts/my_page.html')
     else:
         form = RegisterForm()
-        return render(request, 'accounts/login.html', {'form': form})
+        return render(request, 'accounts/login_page.html', {'form': form})
 
 # 마이페이지 처음 화면
 def my_home(request) :
