@@ -10,7 +10,12 @@ import codecs
 import uuid
 
 def final_result(request, group_pk):
-    return render(request, 'wwmgroup/final_result.html', context={'group_pk':group_pk})
+    group = get_object_or_404(WwmGroup, pk=group_pk)
+    user = get_object_or_404(User, pk=request.user.id)
+    if group.user.get(email=user.email):
+        return render(request, 'wwmgroup/final_result.html', context={'group_pk':group_pk})
+    else:
+        return render(request, 'wwmgroup/failconnect.html')
 
 # 1. 그룹 생성하는 view,
 # - 생성하는 순간 그룹장.그룹 고유 url 만든다.
@@ -29,7 +34,7 @@ def groupcreate(request):
         if form.is_valid():
             group = form.save()
             group.save()
-            return redirect('그룹화면.html')#그룹 만들고 어디로 이동할지
+            return redirect(f'wwmgroup/{group.pk}')#그룹 만들고 어디로 이동할지
     else:
         user = get_object_or_404(User, pk=request.user.id)
         form = groupForm()
@@ -61,9 +66,9 @@ def banuser(request, pk, ban_user):
     if request.user.email == group.leader_email:
         banuser = get_object_or_404(User, email=ban_user)
         group.user.remove(banuser)
-        return render(request, '유저추방완료.html')
+        return render(request, 'wwmgroup/successban.html')
     else:
-        return render(request, '유저추방실패.html')
+        return render(request, 'wwmgroup/failban.html')
 
 
 # 5 그룹원 리스트 출력하는 view
@@ -80,7 +85,7 @@ def joingroup(request, group_url):
         user = get_object_or_404(User, pk=request.user.id)
         group = get_object_or_404(WwmGroup, wwmgroupurl=group_url)
         group.user.add(user)
-        return render(request, '그룹페이지.html')
+        return render(request, 'wwmgroup/final_result.html', context={'group_pk': group.pk})
     else:
         login(request)
         return redirect(f'/wwmgroup/join/{group_url}')
@@ -99,7 +104,7 @@ def leavegroup(request, group_url):
     group = get_object_or_404(WwmGroup, wwmgroupurl = group_url)
     user = get_object_or_404(User, pk=request.user.id)
     group.user.remove(user)
-    return render(request, "main")
+    return redirect('/accounts/my_home')
 
 
 def generate_random_slug_code(length):
