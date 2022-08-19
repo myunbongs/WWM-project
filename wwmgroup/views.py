@@ -16,15 +16,18 @@ import uuid
 
 def groupcreate(request):
     user = get_object_or_404(User, pk=request.user.id)
+    #user = get_object_or_404(User,pk='1') # test용 !
+
     # 유저 아이디 받아옴.
     if request.method == 'POST':
         group = WwmGroup.objects.create(leader_email=request.user.email, wwmgroupurl=generate_random_slug_code(8))
+        #group = WwmGroup.objects.create(leader_email='asdasd@naver.com', wwmgroupurl=generate_random_slug_code(8))
         form = groupForm(request.POST, instance=group)
         group.user.add(user)
         if form.is_valid():
             group = form.save()
             group.save()
-            return redirect('main')#그룹 만들고 어디로 이동할지
+            return redirect('my_home')#그룹 만들고 어디로 이동할지
     else:
         form = groupForm()
         return render(request, 'wwmgroup/groupcreate.html', {'form': form})
@@ -96,3 +99,6 @@ def generate_random_slug_code(length):
         return base64.urlsafe_b64encode(
             codecs.encode(uuid.uuid4().bytes, "base64").rstrip()
         ).decode()[:length]
+
+def group_test(request) :
+    return render(request,'whenmeet/datepicker.html')
