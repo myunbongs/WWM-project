@@ -4,30 +4,6 @@ body {
   padding: 0;
 }
 
-#header {
-  height: 6%;
-  width: 100%;
-  background-color: #e5eafe;
-  padding: 0%;
-  position: relative;
-}
-
-#logo_wm {
-  width: 3.5%;
-  margin-left: 2%;
-}
-
-#logo_whenmeet {
-  width: 8%;
-  margin-bottom: 1.2%;
-}
-
-#navigate {
-  width: 3.5%;
-  margin-top: 0.5%;
-  margin-left: 1.5%;
-}
-
 #start_title {
   text-align: center;
   font-size: 27px;
