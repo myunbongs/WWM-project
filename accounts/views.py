@@ -14,10 +14,10 @@ def user_grouplist(request):
     for group in group_list:
         user_list.append(list(group.user.all()))
 
-    my_list = zip(group_list,user_list)
+    my_list = zip(group_list, user_list)
 
     if group_list is not None:
-        # 그룹 이름과 그룸원 출력 
+        # 그룹 이름과 그룸원 출력
         return render(request, 'accounts/my_page.html',{'my_list':my_list})
     else:
         return redirect('/')
