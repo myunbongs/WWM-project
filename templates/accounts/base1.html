@@ -16,7 +16,7 @@
             {%  if request.user.is_authenticated %}
                 <img href="/auth/logout" src="{% static 'img/profile img.png' %}">
                 <p class="userName" href="/auth/logout">{{ user.first_name }} 님</p>
-                <a href="/auth/logout" >로그아웃</a>
+                <a href="/auth/logout" ><img id="logout" src="{% static 'img/logout.png' %}" ></a>
             {% else %}
                 <a href="/accounts/" >로그인</a>
             {% endif %}
