@@ -1,0 +1,45 @@
+{% extends 'accounts/base1.html' %}
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <div class="icon">
+    <img src="{% static 'img/WhenMeet.png' %}">
+    </div>
+    <br>
+    <h2>개인, 혹은 그룹의 시간 그래프를 사용해보세요</h2>
+</head>
+<body>
+<div class="box">
+    <button id="bar1" >
+        <strong class="mainText">개인</storng>
+            <p class="img"><a href="{% url 'get_personal_timetable' %}"><img src="{% static 'img/icon user.png' %}"></a></p>
+    </button>
+
+    <button id="bar2">
+        <strong class="mainText2">그룹</storng>
+        <p class="img"><img src="{% static 'img/people group.png' %}"></p>
+    </button>
+</div>
+<br>
+<div class="box2">
+    <button id="bar3">
+        <a href="{% url 'user_grouplist' %}"><img src="{% static 'img/my group list.png' %}" class="bookimg"></a>
+    </button>
+</div>
+<!-- <footer>
+    <nav>
+        <a >우리 만나 </a> |
+        <a href='https://github.com/When-meet/WWM-project/' target='_blank'>Github</a>
+    </nav>
+    <p>
+        <span>제작자 : OOO</span><br/>
+        <span>이메일 : OOO@gmail.com</span><br/>
+        <span>Copyright 2022. WhenMeet. All Rights Reserved.</span>
+    </p>
+</footer> -->
+
+<script src="{% static 'js/login.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
+{% endblock %}

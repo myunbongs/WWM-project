@@ -12,7 +12,9 @@ def post_group_timetable(request,pk):
     if request.method == 'GET':
         date = []
         group = WwmGroup.objects.get(id = pk)
-        start_date = group.startdate
+        user_list = group.user.all()  
+
+start_date = group.startdate
         end_date = group.enddate
         day_count = (end_date - start_date).days + 1
         for single_date in (start_date + timedelta(n) for n in range(day_count)):
@@ -21,6 +23,7 @@ def post_group_timetable(request,pk):
         timetable = create_group_timetable(pk,start_date,end_date)
         result = get_result(timetable,user_count)
         context = {
+            'user_list': user_list, 
             'groupname': group.groupname,
             'timetable' : timetable, #리스트 형이며 리스트의 요소는 안되는사람의 이름들의 리스트임
             'startdate' : str(start_date), 
@@ -30,7 +33,7 @@ def post_group_timetable(request,pk):
             'result_count' : user_count - len(timetable[result[0]]),
             'user_count' : user_count,
         }
-        return render(request,'index.html',context)
+        return render(request,'whenmeet/index.html',context)
 # 1-2. 개인타임 테이블 뿌리는 view -> 시작일을 name = startdate 로 받아야됨
 def post_personal_timetable(request):
     user = User.objects.get(id = '1')
