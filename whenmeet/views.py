@@ -59,6 +59,7 @@ def post_personal_timetable(request):
             'enddate' : enddate,
             'date' : date,
     }
+
     return render(request,'whenmeet/mytimetable.html',context)
 # 2-1. 그룹원들 타임 테이블 취합하는 view 
 # - wwmgroup modeld의 avaliablity_cal_length 속성 사용 
