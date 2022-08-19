@@ -1,8 +1,11 @@
 from django.urls import path
-from . import views
+from wwmgroup import views
 
 urlpatterns = [
-    path('login', views.login, name='login'),
-    path('banuser', views.login, name='banuser'),
-    path('<group_url>', views.joingroup, name='joingroup'),
+    path('banuser', views.banuser, name='banuser'),
+    path('join/<group_url>', views.joingroup, name='joingroup'),
+    path('groupcreate', views.groupcreate, name='groupcreate'),
+    path('<group_url>/leave', views.leavegroup, name='leavegroup'),
+    path('<group_url>/changeleader', views.changeleader, name='changeleader'),
+    path('<group_url>/banuser', views.banuser, name='banuser'),
 ]

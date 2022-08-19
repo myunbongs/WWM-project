@@ -5,4 +5,4 @@ from wwmgroup.models import WwmGroup
 class groupForm(forms.ModelForm):
     class Meta:
         model = WwmGroup
-        fields = ['groupname', 'desc', 'startdate', 'enddate', 'leader_email']
+        fields = ['groupname', 'desc', 'startdate', 'enddate', 'leader_email',]

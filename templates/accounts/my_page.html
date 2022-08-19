@@ -1,10 +1,50 @@
-{% for group in group_list %}
+<!-- username으로하는지 이름으로 하는지 몰라서 일단 피그마처럼 이름으로 해놨습니닷
+    그룹 스페이스누르면 해당 그룹 최종 결과항 아직 연결 x  -->
+{% extends 'accounts/base1.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/group list.css' %}" />
+    <h1>{{ user.first_name }} 님의 참여 그룹 목록</h1>
+    <br>
+    <br>
+</head>
+<body>
+    {% for group,user in my_list %}
 
-<p>{{ group.groupname }}</p>
-    {% for user in user_list %}
-
-    <p>{{ user.name }}</p>
-
+    <div class="container" >
+        <div class="box">
+            <br> 
+            <p class="groupName">{{ group.groupname }}</p>
+            <div>
+                <div class="co"><p class="in" >&emsp;참여: </p></div>
+                <div class="people">
+                        {% for i in user %}
+                    <div id="nameBox{{forloop.counter}}" ><p id="name">{{ i.first_name }}</p></div>  
+                    {% endfor %}
+                </div>             
+            </div>    
+            <div class="groupSpace"><p class="start">그룹 스페이스</p></div>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
     {% endfor %}
-
-{% endfor %}
+    <br>
+    <br>
+    <!-- <footer>
+        <nav>
+            <a >우리 만나 </a> |
+            <a href='https://github.com/When-meet/WWM-project/' target='_blank'>Github</a>
+        </nav>
+        <p>
+            <span>제작자 : OOO</span><br/>
+            <span>이메일 : OOO@gmail.com</span><br/>
+            <span>Copyright 2022. WhenMeet. All Rights Reserved.</span>
+        </p>
+    </footer> -->
+    <script src="{% static 'js/group list.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,219 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.topBar {
+    display: flex;
+    width: 100%;
+    background-color: #E5EAFE;
+    height: 40px;
+}
+
+.topBar2 {
+    display: flex;
+    width: 100%;
+    background-color: #DBE0F1;
+    height: 5px;
+}
+
+.mainLogo {
+    margin-left: 15px;
+    margin-bottom: 1px;
+    float: left;
+    clear: both;
+}
+
+.profile {
+    width: 15%;
+    margin-left: 80%;
+    display: flex;
+    float: right;
+}
+
+.userName {
+    margin-left: 7%;
+    margin-top: 7%;
+    float: right;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
+.box {
+    text-align: center;
+    width: 100%;
+    height: 230px;
+    background-color: #EBEBEB;
+    border : 1px solid #ebebeb;
+    border-radius : 30px;
+    box-shadow: 7px 7px 7px rgb(177, 160, 160);
+}
+
+.groupName {
+    font-size: 2em;
+    margin-right: 85%;
+    font-weight: bold;
+}
+
+/* .people {
+    margin-left: 3%;
+    width: 5%;
+    height: 20%;
+    border-radius : 10px;
+    background-color: blue;
+    border : 1px solid #ebebeb;
+    border-radius : 30px;
+} */
+
+.people {
+    display: flex;
+}
+
+#nameBox1 {
+    clear: both;
+    margin-left: 0.8%;
+    width: 4%;
+    height: 25px;
+    border-radius : 10px;
+    background-color: #C5C0C0;
+    border : 1px solid #C5C0C0;
+    border-radius : 7px;
+    box-shadow: 3px 3px 3px rgb(148, 140, 140);
+}
+#nameBox2 {
+    clear: both;
+    margin-left: 0.8%;
+    width: 4%;
+    height: 25px;
+    border-radius : 10px;
+    background-color: #C7EBC0;
+    border : 1px solid #C7EBC0;
+    border-radius : 7px;
+    box-shadow: 3px 3px 3px rgb(148, 140, 140);
+}
+
+#nameBox3 {
+    clear: both;
+    margin-left: 0.8%;
+    width: 4%;
+    height: 25px;
+    border-radius : 10px;
+    background-color: #F7E1AC;
+    border : 1px solid #F7E1AC;
+    border-radius : 7px;
+    box-shadow: 3px 3px 3px rgb(148, 140, 140);
+}
+
+#nameBox4 {
+    clear: both;
+    margin-left: 0.8%;
+    width: 4%;
+    height: 25px;
+    border-radius : 10px;
+    background-color: #A6E3FF;
+    border : 1px solid #A6E3FF;
+    border-radius : 7px;
+    box-shadow: 3px 3px 3px rgb(148, 140, 140);
+}
+
+#nameBox5 {
+    clear: both;
+    margin-left: 0.8%;
+    width: 4%;
+    height: 25px;
+    border-radius : 10px;
+    background-color: #FFC7BD;
+    border : 1px solid #FFC7BD;
+    border-radius : 7px;
+    box-shadow: 3px 3px 3px rgb(148, 140, 140);
+}
+
+#nameBox6 {
+    clear: both;
+    margin-left: 0.8%;
+    width: 4%;
+    height: 25px;
+    border-radius : 10px;
+    background-color: #D9BFF2;
+    border : 1px solid #D9BFF2;
+    border-radius : 7px;
+    box-shadow: 3px 3px 3px rgb(148, 140, 140);
+}
+
+.groupSpace {
+    cursor: pointer;
+    margin-top: 1%;
+    margin-right: 2%;
+    float: right;
+    width:  17%;
+    height: 30%;
+    border-radius : 100px;
+    background-color: #466fff;
+    box-shadow: 4px 4px 4px rgb(148, 140, 140);
+}
+
+.groupSpace:hover {
+    background-color: #3b53dd;
+    border: 1px solid #3b53dd;
+}
+
+
+.co {
+    float: left;
+    clear: both;
+    margin-left: 3%;
+}
+
+#name {
+    color: white;
+}
+
+.in {
+    font-size: 1.15em;
+}
+
+.start {
+    font-weight: bold;
+    color: white;
+    font-size: 1.75em;
+    margin-top: 6%;
+}
+
+footer {
+    
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+    height: 0px;
+    bottom: 0px;
+    position: absolute;
+    border-top: 1px solid #c4c4c4;
+    padding-top: 15px;
+    color: #808080;
+    font-size: 11px;
+  }
+  
+  footer a {
+    display: inline-block;
+    margin: 0 20px 10px 20px;
+    color: #808080; font-size: 11px;
+  }
+  
+  footer a:visited {
+    color: #808080;
+  }
+  
+  footer p {
+    margin-top: 0; margin-bottom: 0;   
+  }
+  
+  footer p span {
+    display: inline-block;
+    margin-left: 20px;
+  }

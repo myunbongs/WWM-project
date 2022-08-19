@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력 날짜 설정</title>
+    <!-- <header>123</header> -->
+    <div class="topBar">
+      <div class="mainLogo">
+          <img src="{% static 'img/main logo.png' %}">
+      </div>
+      <div class="profile">
+          <img src="{% static 'img/profile img.png' %}">
+          <p class="userName">호진 님</p>
+      </div>
+  </div>
+  <div class="topBar2"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/datepicker.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <!-- <div class="icon">
+        <img src="./WhenMeet.png">
+        </div>
+        <h2>시작일과 종료일을 골라주세요<h2> -->
+</head>
+<body>
+    <div class="total">
+        <br>
+        <br>
+        <br>
+        <div class="icon">
+            <img src="{% static 'img/WhenMeet.png' %}">
+            </div>
+            <h2>시작일과 종료일을 골라주세요<h2>
+    <input type="text" name="calender" value="" />
+
+<!-- <script type="text/javascript">
+    $(function() {
+
+  $('input[name="calender"]').daterangepicker({
+    "alwaysShowCalendars": true,
+    "autoApply": true,
+    "opens": "center"},
+      function(start, end, label) {
+        console.log('New date range selected: ' + start.format('YYYY-MM-DD') + '~' + end.format('YYYY-MM-DD'));
+      });
+      $('input[name="calender"]').data('daterangepicker').show();
+});
+</script> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- <div class="hidenbox">
+    <div class="groupbox"></div>
+    </div> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+    <div class="makeRoom">
+        <p class="Room">방만들기</p>
+    </div>
+    </div>
+</div>
+    <div class="hiddenbox">
+        <div class="groupbox">
+            <div class="groupName"><input id="input1" placeholder="그룹 이름 입력"></input></div>
+            <div class="makeRoom2">
+                <p class="Room2">방만들기</p>
+            </div>
+        </div>
+        </div>
+    <br>
+    <footer>
+          <nav>
+              <a >우리 만나 </a> |
+              <a href='https://github.com/When-meet/WWM-project/' target='_blank'>Github</a>
+          </nav>
+          <p>
+              <span>제작자 : OOO</span><br/>
+              <span>이메일 : OOO@gmail.com</span><br/>
+              <span>Copyright 2022. WhenMeet. All Rights Reserved.</span>
+          </p>
+      </footer>
+    <script src="{% static 'js/datepicker.js' %}"></script>
+</body>
+</html>
