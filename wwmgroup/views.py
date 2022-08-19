@@ -34,7 +34,7 @@ def groupcreate(request):
         if form.is_valid():
             group = form.save()
             group.save()
-            return redirect(f'wwmgroup/{group.pk}')#그룹 만들고 어디로 이동할지
+            return redirect('/accounts/my_home')#그룹 만들고 어디로 이동할지
     else:
         user = get_object_or_404(User, pk=request.user.id)
         form = groupForm()
