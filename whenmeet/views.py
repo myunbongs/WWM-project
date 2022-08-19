@@ -14,7 +14,7 @@ def post_group_timetable(request,pk):
         group = WwmGroup.objects.get(id = pk)
         user_list = group.user.all()  
 
-start_date = group.startdate
+        start_date = group.startdate
         end_date = group.enddate
         day_count = (end_date - start_date).days + 1
         for single_date in (start_date + timedelta(n) for n in range(day_count)):
