@@ -29,7 +29,7 @@ def groupcreate(request):
         if form.is_valid():
             group = form.save()
             group.save()
-            return redirect('my_home')#그룹 만들고 어디로 이동할지
+            return redirect('그룹화면.html')#그룹 만들고 어디로 이동할지
     else:
         user = get_object_or_404(User, pk=request.user.id)
         form = groupForm()

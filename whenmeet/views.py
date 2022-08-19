@@ -8,10 +8,10 @@ from accounts.models import User
 from datetime import timedelta, datetime
 import json
 
-def post_group_timetable(request,group_url):
+def post_group_timetable(request,pk):
     if request.method == 'GET':
         date = []
-        group = WwmGroup.objects.get(wwmgroupurl=group_url)
+        group = WwmGroup.objects.get(pk=pk)
         user_list = group.user.all()  
 
         start_date = group.startdate
@@ -20,7 +20,7 @@ def post_group_timetable(request,group_url):
         for single_date in (start_date + timedelta(n) for n in range(day_count)):
             date.append(str(single_date))
         user_count = len([user for user in group.user.all()])
-        timetable = create_group_timetable(group.pk,start_date,end_date)
+        timetable = create_group_timetable(pk,start_date,end_date)
         result = get_result(timetable,user_count)
         context = {
             'user_list': user_list, 
