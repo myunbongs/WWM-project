@@ -1,3 +1,5 @@
+{% extends 'accounts/base1.html' %}
+{% block content %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -14,11 +16,11 @@
     <div id="full">
         <div id="main">
             <div id="up">
-                <div id="middle_title">언제만나 팀의 중간 지점</div>
+                <div id="middle_title">{{groupname}} 팀의 중간 지점</div>
                 <!-- user n 파트를 데이터 내 사용자명으로 받아오는 방법!! -->
                 <div id="group">
                     {% for user in user_list %}
-                    <span class="user">{{ user.name }}</span>
+                    <span class="user">{{ user.get_full_name }}</span>
                     {% endfor %}
                     <!-- <span id="user">{{ user.name }}</span>
                     <span id="user">{{ user.name }}</span>
@@ -44,14 +46,23 @@
 </div>
 <div class="modal_wrap">
     <!-- 모임 일자, 시간 => 데이터 -->
-    <div>모임 일자</div>
-    <span>8/15</span>
-    <span>14시</span>
+ 
     <div>모임 장소</div>
     <p>{{station}}</p></br>  
     <button type="button" class="goBack">뒤로가기</button>
-    <button type="button" class="goSpace">그룹 스페이스</button>
+    <button type="button" class="goSpace" onClick = "location.href = '{% url 'final_result' group_pk %}'">그룹 스페이스</button>
 </div>
+<footer>
+    <nav>
+        <a >우리 만나 </a> |
+        <a href='https://github.com/When-meet/WWM-project/' target='_blank'>Github</a>
+    </nav>
+    <p>
+        <span>제작자 : OOO</span><br/>
+        <span>이메일 : OOO@gmail.com</span><br/>
+        <span>Copyright 2022. WhenMeet. All Rights Reserved.</span>
+    </p>
+</footer> 
     <!-- 
         'station': wwmgroup.meeting_station,
         'latitude_station': station['위도'], 
@@ -217,3 +228,4 @@ function makeOutListener(infowindow) {
       </script>
 </body>
 </html>
+{% endblock %}

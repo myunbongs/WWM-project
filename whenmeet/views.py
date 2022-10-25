@@ -22,6 +22,7 @@ def post_group_timetable(request,pk):
         user_count = len([user for user in group.user.all()])
         timetable = create_group_timetable(pk,start_date,end_date)
         result = get_result(timetable,user_count)
+        print(timetable)
         context = {
             'user_list': user_list, 
             'groupname': group.groupname,
@@ -39,7 +40,7 @@ def post_group_timetable(request,pk):
         return render(request,'whenmeet/index.html',context)
 # 1-2. 개인타임 테이블 뿌리는 view -> 시작일을 name = startdate 로 받아야됨
 def post_personal_timetable(request):
-    user = User.objects.get(id = '1')
+    user = User.objects.get(id = request.user.id)
     startdate = DateFormat(datetime.now()).format('Y-m-d')
     enddate = DateFormat(datetime.now()+timedelta(days=6)).format('Y-m-d')
     
@@ -75,6 +76,7 @@ def create_group_timetable(group_id,start_date,end_date):
     users_timetables = [[user.name,user.avaliablity_days_time] for user in group.user.all()]
     users = [data[0] for data in users_timetables]
     availity_times = [data[1] for data in users_timetables]
+    print(availity_times)
     timetables = []
     for availity_time in availity_times:
         formatted_time = ''
@@ -86,6 +88,7 @@ def create_group_timetable(group_id,start_date,end_date):
                 formatted_time += availity_time[24*(i%7):24*((i+1)%7)]
         timetables.append(formatted_time)
     binds = list(map(list,zip(*timetables)))
+    print(binds)
     for bind in binds:
         timetable.append([users[i] for i in range(len(bind)) if bind[i]=='1'])
     return timetable
@@ -96,8 +99,8 @@ def edit_personal_timetable(request):
     if request.method == 'POST':
         today = get_weekday(datetime.now())
         today = -1*(today)
-        #user = User.objects.get(id = request.user.id)
-        user = User.objects.get(id = '1')#테스트용 지워야됨
+        user = User.objects.get(id = request.user.id)
+        #user = User.objects.get(id = '1')#테스트용 지워야됨
         data = request.POST.get('timetable')
         print(data)
         data = data[24*today:]+data[0:24*today]
@@ -115,6 +118,7 @@ def get_weekday(date):
 
 
 def get_result(timetable,count):
+    print(timetable,count)
     min_len = count
     result = []
     for i in range(len(timetable)):

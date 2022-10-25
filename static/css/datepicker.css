@@ -57,12 +57,12 @@ html,body {
     border-radius : 5px;
 
 }
-/* header {
+header {
     display: flex;
     width: 100%;
     background-color: #E5EAFE;
     height: 80px;
-} */
+}
 
 .topBar {
     display: flex;

@@ -1,0 +1,52 @@
+{% extends 'accounts/base1.html' %}
+
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>introduce</title>
+    <style>
+        img {
+         position:relative;
+         max-width: 100%;
+         display: block; 
+         margin: 0px auto;
+        }
+
+        .btn1{
+            position:relative;
+
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="main_1">
+        <img src="{% static 'img/main_1.png'%}">
+            <div style ="text-align:center;">
+                <!-- <button class='btn1' type="button" 
+                    style="color:white;
+                    background-color:#466FFF;
+                    font-size:1.5em; border-radius:0.5em; padding:5px 15px;
+                    border:0; outline:0;"
+                onClick="location.href='login.html'">시작하기</button>
+             -->
+             {%  if request.user.is_authenticated %}
+                <button type="button" class="btn btn-primary" onClick="location.href='{% url 'my_home' %}'">시작하기</button>
+             {% else %}
+                <button type="button" class="btn btn-primary" onClick="location.href='{% url 'login' %}'">시작하기</button>
+             {% endif %}
+            </div>
+    </div>
+
+    <script src="{% static 'js/login.js' %}"></script>
+</body>
+</html>
+
+{%endblock%}
